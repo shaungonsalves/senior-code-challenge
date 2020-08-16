@@ -1,6 +1,7 @@
 package com.mindex.challenge.service.impl;
 
 import com.mindex.challenge.data.Employee;
+import com.mindex.challenge.data.ReportingStructure;
 import com.mindex.challenge.service.EmployeeService;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +23,7 @@ public class EmployeeServiceImplTest {
 
     private String employeeUrl;
     private String employeeIdUrl;
+    private String structureIdUrl;
 
     @Autowired
     private EmployeeService employeeService;
@@ -36,6 +38,7 @@ public class EmployeeServiceImplTest {
     public void setup() {
         employeeUrl = "http://localhost:" + port + "/employee";
         employeeIdUrl = "http://localhost:" + port + "/employee/{id}";
+        structureIdUrl = "http://localhost:" + port + "/structure/{id}";
     }
 
     @Test
@@ -72,6 +75,24 @@ public class EmployeeServiceImplTest {
                         readEmployee.getEmployeeId()).getBody();
 
         assertEmployeeEquivalence(readEmployee, updatedEmployee);
+    }
+
+    @Test
+    public void testNumberOfReports(){
+        Employee testEmployee = new Employee();
+        testEmployee.setFirstName("John");
+        testEmployee.setLastName("Doe");
+        testEmployee.setDepartment("Engineering");
+        testEmployee.setPosition("Developer");
+        ReportingStructure testStructure = new ReportingStructure();
+        testStructure.setEmployee(testEmployee);
+
+        ReportingStructure createdStructure =
+                restTemplate.getForEntity(structureIdUrl,ReportingStructure.class,testStructure.getEmployee().getEmployeeId()).getBody();
+        assertZeroReports(testStructure,createdStructure);
+    }
+
+    private void assertZeroReports(ReportingStructure testEmployee, ReportingStructure createdEmployee) {
     }
 
     private static void assertEmployeeEquivalence(Employee expected, Employee actual) {
