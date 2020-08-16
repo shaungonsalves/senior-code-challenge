@@ -38,7 +38,7 @@ public class EmployeeServiceImplTest {
     public void setup() {
         employeeUrl = "http://localhost:" + port + "/employee";
         employeeIdUrl = "http://localhost:" + port + "/employee/{id}";
-        structureIdUrl = "http://localhost:" + port + "/structure/{id}";
+        structureIdUrl = "http://localhost:" + port + "/reports/{id}";
     }
 
     @Test
@@ -93,6 +93,7 @@ public class EmployeeServiceImplTest {
     }
 
     private void assertZeroReports(ReportingStructure testEmployee, ReportingStructure createdEmployee) {
+        assertEquals(testEmployee.getNumberOfReports(),createdEmployee.getNumberOfReports());
     }
 
     private static void assertEmployeeEquivalence(Employee expected, Employee actual) {

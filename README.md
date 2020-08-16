@@ -77,6 +77,13 @@ This new type should have a new REST endpoint created for it. This new endpoint 
 the fully filled out ReportingStructure for the specified employeeId. The values should be computed on the fly and will 
 not be persisted.
 
+### Comments on Task 1
+I have slightly modified the Model of Employee slightly to better optimize for Task 2. I have separated the employeeId 
+from the remaining attributes so that Task 2 requires only the employeeId attribute and not other attributes.
+
+I have added a test case to test numberOfReports works correctly. I have avoided comments in the code following the
+existing convention.
+
 ### Task 2
 Create a new type, Compensation. A Compensation has the following fields: employee, salary, and effectiveDate. Create 
 two new Compensation REST endpoints. One to create and one to read by employeeId. These should persist and query the 

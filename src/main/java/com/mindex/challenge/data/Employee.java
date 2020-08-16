@@ -1,9 +1,11 @@
 package com.mindex.challenge.data;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.List;
 
-public class Employee {
-    private String employeeId;
+public class Employee extends EmployeeBase {
+
     private String firstName;
     private String lastName;
     private String position;
@@ -11,14 +13,7 @@ public class Employee {
     private List<Employee> directReports;
 
     public Employee() {
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+        super();
     }
 
     public String getFirstName() {
@@ -60,4 +55,5 @@ public class Employee {
     public void setDirectReports(List<Employee> directReports) {
         this.directReports = directReports;
     }
+
 }

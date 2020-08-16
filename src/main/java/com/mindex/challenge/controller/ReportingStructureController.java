@@ -16,7 +16,7 @@ public class ReportingStructureController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/structure/{id}")
+    @GetMapping("/reports/{id}")
     public ReportingStructure getReportingStructure(@PathVariable String id){
          return employeeService.readReportingStructure(id);
     }

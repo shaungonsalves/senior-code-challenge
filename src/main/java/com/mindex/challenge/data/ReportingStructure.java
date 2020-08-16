@@ -1,10 +1,10 @@
 package com.mindex.challenge.data;
 
 public class ReportingStructure {
-    private Employee employee;
+    private EmployeeBase employee;
     private Integer numberOfReports;
 
-    public Employee getEmployee() {
+    public EmployeeBase getEmployee() {
         return employee;
     }
 
@@ -12,8 +12,9 @@ public class ReportingStructure {
         return numberOfReports;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployee(EmployeeBase employee) {
+        this.employee = new EmployeeBase();
+        this.employee.setEmployeeId(employee.getEmployeeId());
     }
 
     public void setNumberOfReports(Integer numberOfReports) {
