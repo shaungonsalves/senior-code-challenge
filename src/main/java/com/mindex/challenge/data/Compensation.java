@@ -28,7 +28,7 @@ public class Compensation {
         this.salary = salary;
     }
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+    static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
     public String getEffectiveDate() {
         return effectiveDate.format(formatter);
     }

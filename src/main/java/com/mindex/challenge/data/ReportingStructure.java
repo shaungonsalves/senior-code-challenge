@@ -13,6 +13,7 @@ public class ReportingStructure {
     }
 
     public void setEmployee(EmployeeBase employee) {
+//        this.employee = employee;
         this.employee = new EmployeeBase();
         this.employee.setEmployeeId(employee.getEmployeeId());
     }
