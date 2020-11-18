@@ -85,26 +85,28 @@ I have restricted the display of fields other than employeeId as a security meas
 I have added a test case to test numberOfReports works correctly. I have avoided comments in the code, following the
 existing convention.
 
+`
 curl --location --request GET 'localhost:8080/reports/16a596ae-edd3-4847-99fe-c4518e82c86f'
-
+`
 ### Task 2
 Create a new type, Compensation. A Compensation has the following fields: employee, salary, and effectiveDate. Create 
 two new Compensation REST endpoints. One to create and one to read by employeeId. These should persist and query the 
 Compensation from the persistence layer.
 
-###Comments on Task 2
+### Comments on Task 2
 I have added a test case to check if the addition of fields works as expected. They do!. As an addition, I have restricted
 the display of fields other than employeeId as a security measure.
 
-curl --location --request GET 'localhost:8080/compensation/16a596ae-edd3-4847-99fe-c4518e82c86f'
+`curl --location --request GET 'localhost:8080/compensation/16a596ae-edd3-4847-99fe-c4518e82c86f'
+`
 
-curl --location --request POST 'localhost:8080/compensation' --header 'Content-Type: application/json' --data-raw '{
+`curl --location --request POST 'localhost:8080/compensation' --header 'Content-Type: application/json' --data-raw '{
     "employee": {
                     "employeeId": "16a596ae-edd3-4847-99fe-c4518e82c86f"
                 },
     "salary": 5000.00,
     "effectiveDate": "20/12/2020"
-}'
+}'`
 
 ## Delivery
 Please upload your results to a publicly accessible Git repo. Free ones are provided by Github and Bitbucket.
